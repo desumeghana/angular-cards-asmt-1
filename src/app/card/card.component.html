@@ -1,0 +1,35 @@
+<div class="col">
+  <div class="card mt-5 mb-5 ">
+    <div class="card-body">
+      <h2 class="card-title text-muted text-uppercase text-center">{{planObj?.plan}}</h2>
+      <h4 class="card-price text-center"><span class="period">{{planObj?.price}}/month</span></h4>
+      <hr>
+      <ul class="fa-ul">
+        <!-- <li><span class="fa-li"><i class="fas fa-check"></i></span>{{listItems[0]}}</li>
+        <li><span class="fa-li"><i class="fas fa-check"></i></span>{{listItems[1]}}</li>
+        <li><span class="fa-li"><i class="fas fa-check"></i></span>{{listItems[2]}}</li>
+        <li><span class="fa-li"><i class="fas fa-check"></i></span>C{{listItems[3]}}</li>
+        <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>{{listItems[4]}}</li>
+        <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>{{listItems[5]}}</li>
+        <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>{{listItems[6]}}</li>
+        <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>{{listItems[7]}}</li> -->
+      <!-- <li *ngFor="let item of listItems">{{item}}<span class="fa-li"><i class="fas fa-check"></i></span></li> -->
+      </ul>
+    <ul class="fa-ul">
+        <li *ngFor="let item of planObj?.features" [ngClass]="{'text-muted': !item.isEnabled, 'fw-bold': item.isEnabled}">
+          <div *ngIf = "item.isEnabled; else ElseBlock">
+            <span class="fa-li"><i class="fas fa-check"></i></span>
+            {{item.name}}
+          </div>
+          <ng-template #ElseBlock>
+            <span class="fa-li"><i class="fas fa-times"></i></span>
+            {{item.name}}
+          </ng-template>
+        </li>
+    </ul>
+      <div class="d-grid">
+        <a href="#" class="btn btn-primary text-uppercase">Button</a>
+      </div>
+    </div>
+  </div>
+</div> 
